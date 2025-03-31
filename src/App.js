@@ -15,18 +15,32 @@ function App() {
     <i>
       Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"
     </i>
-    <p>
-      Components kunnen geen meerdere tags returnen in JSX
-    </p>
-    <p>
-      Attributen kunnen niet worden toegepast in JSX
-    </p>
-    <p>
-      Comments worden niet ondersteund in JSX
-    </p>
-    <p>
-      JSX staat geen zelfsluitende tags toe
-    </p>
+    <div className="quiz-options">
+          <label>
+            <input type="radio" name="quiz" />
+            <span>
+              Components kunnen geen meerdere tags returnen in JSX
+              </span>
+          </label>
+          <label>
+            <input type="radio" name="quiz" />
+            <span>
+              Attributen kunnen niet worden toegepast in JSX
+              </span>
+          </label>
+          <label>
+            <input type="radio" name="quiz" />
+            <span>
+              Comments worden niet ondersteund in JSX
+              </span>
+          </label>
+          <label>
+            <input type="radio" name="quiz" />
+            <span>
+              JSX staat geen zelfsluitende tags toe
+              </span>
+          </label>
+        </div>
     </main> 
     </div>
   );
