@@ -4,26 +4,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>test</p>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1> 
+          test 
+        </h1>
       </header>
       <body className="App-body"> 
-      <p>
+      <h2> 
       Deze quiz gaat over de inhoud van React
-    </p>
-    <p>
+    </h2>
+    <i>
       Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"
-    </p>
+    </i>
     <p>
       Components kunnen geen meerdere tags returnen in JSX
     </p>
