@@ -55,12 +55,12 @@
   appearance: none; 
   width: 15px; 
   height: 15px; 
-  border: 2px solid #070bdc; 
+  border: 2px solid #01011e; 
   border-radius: 50%; 
   outline: none; 
   cursor: pointer; 
 }
 
 .quiz-options input[type="radio"]:checked {
-  background-color: #007bff; 
+  background-color: #496084; 
 }
