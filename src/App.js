@@ -5,12 +5,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1> 
-          test 
+        React Quiz
         </h1>
       </header>
-      <body className="App-body"> 
+      <main className="App-body"> 
       <h2> 
-      Deze quiz gaat over de inhoud van React
+      succes!
     </h2>
     <i>
       Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"
@@ -27,7 +27,7 @@ function App() {
     <p>
       JSX staat geen zelfsluitende tags toe
     </p>
-    </body> 
+    </main> 
     </div>
   );
 }

@@ -14,15 +14,17 @@
 }
 
 .App-header {
-  background-color: rgb(138, 33, 33);
-  align-items: left;
-  justify-content: left;
+  position: relative;
+  display: flex;
+  height: 105px;
+  background-color: rgb(168, 157, 157);
   color: rgb(59, 43, 59);
 }
 
 .App-body {
-  background-color: gray;
-  color: #333;
+  background-color: rgb(168, 157, 157);
+  color: #0f0e0e;
+  padding: 100px;
 }
 
 .App-link {
