@@ -1,4 +1,6 @@
 import './App.css';
+import ConfirmButton from './ConfirmButton'; 
+
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
           </label>
         </div>
     </main> 
+    <ConfirmButton /> {/* Place the ConfirmButton here for optimal positioning */}
     </div>
   );
 }
