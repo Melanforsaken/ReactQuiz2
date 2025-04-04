@@ -3,12 +3,12 @@ import './Button.css';
 
 const ConfirmButton = () => {
   const handleClick = () => {
-    alert("Confirmed!");
+    alert("Bevestigd!");
   };
 
   return (
     <button className="confirm-button" onClick={handleClick}>
-      Confirm
+      bevestig keuze
     </button>
   );
 };
