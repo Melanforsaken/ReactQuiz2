@@ -24,7 +24,7 @@ function App() {
     if (selectedOption === correctAnswer) {
       setResult('correct');
     } else {
-      setResult('wrong');
+      setResult('verkeerd antwoord');
     }
     setExplanation(descriptions[selectedOption] || ''); 
   };
