@@ -5,8 +5,16 @@ import React, { useState } from 'react';
 function App() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
+  const [explanation, setExplanation] = useState('');
 
-  const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX'; // Define the correct answer
+  const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
+  
+  const descriptions = {
+    'Components kunnen geen meerdere tags returnen in JSX': 'Dit is juist omdat JSX slechts één root-element per component toestaat.',
+    'Attributen kunnen niet worden toegepast in JSX': 'Onjuist, attributen kunnen wel degelijk worden toegepast in JSX.',
+    'Comments worden niet ondersteund in JSX': 'Onjuist, comments in JSX worden ondersteund door gebruik te maken van de juiste syntaxis.',
+    'JSX staat geen zelfsluitende tags toe': 'Onjuist, JSX staat zelfsluitende tags toe, vergelijkbaar met HTML.'
+  };
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -18,6 +26,7 @@ function App() {
     } else {
       setResult('wrong');
     }
+    setExplanation(descriptions[selectedOption] || ''); 
   };
 
   return (
@@ -67,6 +76,7 @@ function App() {
           </label>
         </div>
         {result && <h3>{result}</h3>} {/* Display the result here */}
+        {explanation && <p>{explanation}</p>} {/* Display the explanation here */}
       </main> 
       <ConfirmButton onConfirm={handleConfirm} />
     </div>
