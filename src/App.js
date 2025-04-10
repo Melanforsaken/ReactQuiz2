@@ -1,7 +1,7 @@
 import './App.css';
 import ConfirmButton from './ConfirmButton'; 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa'; // Import arrow icon
 import NextPage from './NextPage'; // Import your NextPage component
 
@@ -90,9 +90,9 @@ function App() {
       </main> 
       <ConfirmButton onConfirm={handleConfirm} />
     </div>
-    <Switch>
-        <Route path="/next-page" component={NextPage} /> {/* Next page route */}
-      </Switch>
+    <Routes>
+        <Route path="/next-page" element={<NextPage />} /> {/* Update for v6 */}
+      </Routes>
     </Router>
   );
 }
