@@ -24,7 +24,7 @@
 .App-body {
   background-color: rgb(168, 157, 157);
   color: #0f0e0e;
-  padding: 100px;
+  padding: 50px; /* Reduced from 100px */
 }
 
 .App-link {
