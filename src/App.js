@@ -1,6 +1,8 @@
 import './App.css';
 import ConfirmButton from './ConfirmButton'; 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
+import { FaArrowRight } from 'react-icons/fa'; // Import arrow icon
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -77,6 +79,12 @@ function App() {
         </div>
         {result && <h3>{result}</h3>} {/* Display the result here */}
         {explanation && <p>{explanation}</p>} {/* Display the explanation here */}
+         {/* Navigation Link to Next Page */}
+         <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
+            Volgende Pagina <FaArrowRight />
+          </Link>
+        </div>
       </main> 
       <ConfirmButton onConfirm={handleConfirm} />
     </div>
