@@ -1,8 +1,9 @@
 import './App.css';
 import ConfirmButton from './ConfirmButton'; 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa'; // Import arrow icon
+import NextPage from './NextPage'; // Import your NextPage component
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -32,6 +33,7 @@ function App() {
   };
 
   return (
+    <Router> {/* Wrap your entire component in Router */}
     <div className="App">
       <header className="App-header">
         <h1>React Quiz</h1>
@@ -88,6 +90,10 @@ function App() {
       </main> 
       <ConfirmButton onConfirm={handleConfirm} />
     </div>
+    <Switch>
+        <Route path="/next-page" component={NextPage} /> {/* Next page route */}
+      </Switch>
+    </Router>
   );
 }
 
