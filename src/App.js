@@ -11,7 +11,7 @@ function App() {
   const [explanation, setExplanation] = useState('');
 
   const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
-  
+
   const descriptions = {
     'Components kunnen geen meerdere tags returnen in JSX': 'Dit is juist omdat JSX slechts één root-element per component toestaat.',
     'Attributen kunnen niet worden toegepast in JSX': 'Onjuist, attributen kunnen wel degelijk worden toegepast in JSX.',
@@ -42,7 +42,7 @@ function App() {
           <Routes>
             {/* Main Quiz Page */}
             <Route path="/" element={
-              <>
+              <div>
                 <h2>succes!</h2>
                 <i>Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"</i>
                 <div className="quiz-options">
@@ -90,7 +90,7 @@ function App() {
                     Volgende Pagina <FaArrowRight />
                   </Link>
                 </div>
-              </>
+              </div>
             } />
             {/* Next Page */}
             <Route path="/next-page" element={<NextPage />} />
