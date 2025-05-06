@@ -10,6 +10,7 @@ function App() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
+  const [canProceed, setCanProceed] = useState(false); // New state for navigation
 
   const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
 
@@ -27,8 +28,10 @@ function App() {
   const handleConfirm = () => {
     if (selectedOption === correctAnswer) {
       setResult('correct');
+      setCanProceed(true); // Allow navigation if the answer is correct
     } else {
       setResult('verkeerd antwoord');
+      setCanProceed(false); // Disallow navigation if the answer is incorrect
     }
     setExplanation(descriptions[selectedOption] || ''); 
   };
@@ -86,9 +89,11 @@ function App() {
                 {result && <h3>{result}</h3>}
                 {explanation && <p>{explanation}</p>}
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                  <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
-                    Volgende Pagina <FaArrowRight />
-                  </Link>
+                  {canProceed && ( // Only show link if user can proceed
+                    <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
+                      Volgende Pagina <FaArrowRight />
+                    </Link>
+                  )}
                 </div>
               </div>
             } />
