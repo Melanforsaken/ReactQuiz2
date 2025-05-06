@@ -47,7 +47,6 @@ const NextPage = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>React Quiz - Second Page</h1>
       </header>
       <main className="App-body">
         <div style={{ textAlign: 'center', marginTop: '40px' }}>
