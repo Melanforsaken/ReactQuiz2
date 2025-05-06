@@ -3,7 +3,7 @@ import ConfirmButton from './ConfirmButton';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import NextPage from './NextPage';
+import NextPage from './Page2';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -40,7 +40,6 @@ function App() {
         </header>
         <main className="App-body"> 
           <Routes>
-            {/* Main Quiz Page */}
             <Route path="/" element={
               <div>
                 <h2>succes!</h2>
@@ -92,7 +91,6 @@ function App() {
                 </div>
               </div>
             } />
-            {/* Next Page */}
             <Route path="/next-page" element={<NextPage />} />
           </Routes>
         </main>
