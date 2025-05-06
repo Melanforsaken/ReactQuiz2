@@ -10,7 +10,7 @@ function App() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
-  const [canProceed, setCanProceed] = useState(false); // New state for navigation
+  const [canProceed, setCanProceed] = useState(false);
 
   const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
 
@@ -28,12 +28,20 @@ function App() {
   const handleConfirm = () => {
     if (selectedOption === correctAnswer) {
       setResult('correct');
-      setCanProceed(true); // Allow navigation if the answer is correct
+      setCanProceed(true);
     } else {
       setResult('verkeerd antwoord');
-      setCanProceed(false); // Disallow navigation if the answer is incorrect
+      setCanProceed(false);
     }
     setExplanation(descriptions[selectedOption] || ''); 
+  };
+
+  const handleRetry = () => {
+    // Reset the state for retrying the quiz
+    setSelectedOption(null);
+    setResult('');
+    setExplanation('');
+    setCanProceed(false);
   };
 
   return (
@@ -89,10 +97,14 @@ function App() {
                 {result && <h3>{result}</h3>}
                 {explanation && <p>{explanation}</p>}
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                  {canProceed && ( // Only show link if user can proceed
+                  {canProceed ? (
                     <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
                       Volgende Pagina <FaArrowRight />
                     </Link>
+                  ) : (
+                    <button onClick={handleRetry} style={{ fontSize: '24px', marginTop: '10px' }}>
+                      Probeer Opnieuw
+                    </button>
                   )}
                 </div>
               </div>
