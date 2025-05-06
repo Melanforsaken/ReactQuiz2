@@ -11,7 +11,7 @@ function App() {
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
   const [canProceed, setCanProceed] = useState(false);
-  const [attempted, setAttempted] = useState(false); // New state for tracking attempts
+  const [attempted, setAttempted] = useState(false); 
 
   const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
 
@@ -27,7 +27,7 @@ function App() {
   };
 
   const handleConfirm = () => {
-    setAttempted(true); // Mark as attempted
+    setAttempted(true); 
     if (selectedOption === correctAnswer) {
       setResult('correct');
       setCanProceed(true);
@@ -39,12 +39,12 @@ function App() {
   };
 
   const handleRetry = () => {
-    // Reset the state for retrying the quiz
+
     setSelectedOption(null);
     setResult('');
     setExplanation('');
     setCanProceed(false);
-    setAttempted(false); // Reset attempted state for fresh start
+    setAttempted(false); 
   };
 
   return (
@@ -105,7 +105,7 @@ function App() {
                       Volgende Pagina <FaArrowRight />
                     </Link>
                   ) : (
-                    attempted && !canProceed && ( // Show retry only if attempted and incorrect
+                    attempted && !canProceed && ( 
                       <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '10px' }}>
                         Probeer Opnieuw
                       </button>
