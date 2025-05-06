@@ -106,7 +106,7 @@ function App() {
                     </Link>
                   ) : (
                     attempted && !canProceed && ( // Show retry only if attempted and incorrect
-                      <button onClick={handleRetry} style={{ fontSize: '24px', marginTop: '10px' }}>
+                      <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '10px' }}>
                         Probeer Opnieuw
                       </button>
                     )
