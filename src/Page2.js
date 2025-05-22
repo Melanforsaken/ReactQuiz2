@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import ConfirmButton from './ConfirmButton'; // Make sure this is available
+import ConfirmButton from './ConfirmButton'; 
 
 const NextPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -11,7 +11,7 @@ const NextPage = () => {
   const [canProceed, setCanProceed] = useState(false);
   const [attempted, setAttempted] = useState(false);
 
-  const correctAnswer = 'Sed do eiusmod tempor incididunt'; // The correct answer
+  const correctAnswer = 'Sed do eiusmod tempor incididunt'; 
 
   const descriptions = {
     'Lorem ipsum dolor sit amet': 'Onjuist, dit is niet de juiste keuze.',
