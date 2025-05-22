@@ -93,7 +93,7 @@ const Page4 = () => {
           {explanation && <p>{explanation}</p>}
           <div style={{ textAlign: 'center', marginTop: '20px' }}>
             {canProceed ? (
-              <Link to="/third-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
+              <Link to="/fifth-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
                 Volgende Pagina <FaArrowRight />
               </Link>
             ) : (
