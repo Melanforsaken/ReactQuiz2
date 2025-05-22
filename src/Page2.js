@@ -45,7 +45,7 @@ const Page2 = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Vraag 2</h1>
+        <h2>Vraag 2</h2>
       </header>
       <main className="App-body"> 
         <div>
