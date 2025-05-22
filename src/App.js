@@ -7,6 +7,7 @@ import NextPage2 from './Page2';
 import NextPage3 from './Page3';
 import NextPage4 from './Page4';
 import NextPage5 from './Page5';
+import NextPage6 from './Page6';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -119,7 +120,8 @@ function App() {
             <Route path="/next-page" element={<NextPage2 />} />
             <Route path="/third-page" element={<NextPage3 />} />
             <Route path="/fourth-page" element={<NextPage4 />} />
-             <Route path="/fifth-page" element={<NextPage5 />} />
+            <Route path="/fifth-page" element={<NextPage5 />} />
+            <Route path="/sixth-page" element={<NextPage6 />} />
           </Routes>
         </main>
         <ConfirmButton onConfirm={handleConfirm} />
