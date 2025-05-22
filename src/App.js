@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import NextPage2 from './Page2';
 import NextPage3 from './Page3';
+import NextPage4 from './Page4';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -116,6 +117,7 @@ function App() {
             } />
             <Route path="/next-page" element={<NextPage2 />} />
             <Route path="/third-page" element={<NextPage3 />} />
+            <Route path="/fourth-page" element={<NextPage4 />} />
           </Routes>
         </main>
         <ConfirmButton onConfirm={handleConfirm} />
