@@ -1,23 +1,21 @@
-import './App.css';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import ConfirmButton from './ConfirmButton'; 
 
-const NextPage3 = () => {
+const Page3 = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
   const [canProceed, setCanProceed] = useState(false);
   const [attempted, setAttempted] = useState(false);
 
-  const correctAnswer = 'Sed do eiusmod tempor incididunt'; 
+  const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
 
   const descriptions = {
-    'Lorem ipsum dolor sit amet': 'Onjuist, dit is niet de juiste keuze.',
-    'Consectetur adipiscing elit': 'Onjuist, dit is niet de juiste keuze.',
-    'Sed do eiusmod tempor incididunt': 'Dit is juist omdat...',
-    'Ut enim ad minim veniam': 'Onjuist, dit is niet de juiste keuze.'
+    'Components kunnen geen meerdere tags returnen in JSX': 'Dit is juist omdat JSX slechts één root-element per component toestaat.',
+    'Attributen kunnen niet worden toegepast in JSX': 'Onjuist, attributen kunnen wel degelijk worden toegepast in JSX.',
+    'Comments worden niet ondersteund in JSX': 'Onjuist, comments in JSX worden ondersteund door gebruik te maken van de juiste syntaxis.',
+    'JSX staat geen zelfsluitende tags toe': 'Onjuist, JSX staat zelfsluitende tags toe, vergelijkbaar met HTML.'
   };
 
   const handleOptionChange = (event) => {
@@ -25,7 +23,7 @@ const NextPage3 = () => {
   };
 
   const handleConfirm = () => {
-    setAttempted(true);
+    setAttempted(true); 
     if (selectedOption === correctAnswer) {
       setResult('correct');
       setCanProceed(true);
@@ -33,7 +31,7 @@ const NextPage3 = () => {
       setResult('verkeerd antwoord');
       setCanProceed(false);
     }
-    setExplanation(descriptions[selectedOption] || '');
+    setExplanation(descriptions[selectedOption] || ''); 
   };
 
   const handleRetry = () => {
@@ -41,52 +39,54 @@ const NextPage3 = () => {
     setResult('');
     setExplanation('');
     setCanProceed(false);
-    setAttempted(false);
+    setAttempted(false); 
   };
 
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Vraag 3</h1>
       </header>
-      <main className="App-body">
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <h2>Vraag: "Welke hiervan is een voorbeeld van Lorem Ipsum?"</h2>
-          <div className="quiz-options" style={{ marginBottom: '20px' }}>
+      <main className="App-body"> 
+        <div>
+          <h2>succes!</h2>
+          <i>Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"</i>
+          <div className="quiz-options">
             <label>
-              <input
-                type="radio"
-                name="quiz"
-                value="Lorem ipsum dolor sit amet"
-                onChange={handleOptionChange}
+              <input 
+                type="radio" 
+                name="quiz" 
+                value="Components kunnen geen meerdere tags returnen in JSX" 
+                onChange={handleOptionChange} 
               />
-              <span>Lorem ipsum dolor sit amet</span>
+              <span>Components kunnen geen meerdere tags returnen in JSX</span>
             </label>
             <label>
-              <input
-                type="radio"
-                name="quiz"
-                value="Consectetur adipiscing elit"
-                onChange={handleOptionChange}
+              <input 
+                type="radio" 
+                name="quiz" 
+                value="Attributen kunnen niet worden toegepast in JSX" 
+                onChange={handleOptionChange} 
               />
-              <span>Consectetur adipiscing elit</span>
+              <span>Attributen kunnen niet worden toegepast in JSX</span>
             </label>
             <label>
-              <input
-                type="radio"
-                name="quiz"
-                value="Sed do eiusmod tempor incididunt"
-                onChange={handleOptionChange}
+              <input 
+                type="radio" 
+                name="quiz" 
+                value="Comments worden niet ondersteund in JSX" 
+                onChange={handleOptionChange} 
               />
-              <span>Sed do eiusmod tempor incididunt</span>
+              <span>Comments worden niet ondersteund in JSX</span>
             </label>
             <label>
-              <input
-                type="radio"
-                name="quiz"
-                value="Ut enim ad minim veniam"
-                onChange={handleOptionChange}
+              <input 
+                type="radio" 
+                name="quiz" 
+                value="JSX staat geen zelfsluitende tags toe" 
+                onChange={handleOptionChange} 
               />
-              <span>Ut enim ad minim veniam</span>
+              <span>JSX staat geen zelfsluitende tags toe</span>
             </label>
           </div>
           {result && <h3>{result}</h3>}
@@ -97,18 +97,18 @@ const NextPage3 = () => {
                 Volgende Pagina <FaArrowRight />
               </Link>
             ) : (
-              attempted && !canProceed && (
-                <button onClick={handleRetry} style={{ fontSize: '24px', marginTop: '10px' }}>
+              attempted && !canProceed && ( 
+                <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '10px' }}>
                   Probeer Opnieuw
                 </button>
               )
             )}
           </div>
         </div>
-        <ConfirmButton onConfirm={handleConfirm} />
       </main>
+      <button onClick={handleConfirm}>Bevestigen</button>
     </div>
   );
 };
 
-export default NextPage3;
+export default Page3;
