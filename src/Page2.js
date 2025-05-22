@@ -1,24 +1,24 @@
 import './App.css';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
 import ConfirmButton from './ConfirmButton'; 
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 import NextPage3 from './Page3';
 
-const NextPage2 = () => {
+function App() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
   const [canProceed, setCanProceed] = useState(false);
-  const [attempted, setAttempted] = useState(false);
+  const [attempted, setAttempted] = useState(false); 
 
-  const correctAnswer = 'Sed do eiusmod tempor incididunt'; 
+  const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
 
   const descriptions = {
-    'Lorem ipsum dolor sit amet': 'Onjuist, dit is niet de juiste keuze.',
-    'Consectetur adipiscing elit': 'Onjuist, dit is niet de juiste keuze.',
-    'Sed do eiusmod tempor incididunt': 'Dit is juist omdat...',
-    'Ut enim ad minim veniam': 'Onjuist, dit is niet de juiste keuze.'
+    'Components kunnen geen meerdere tags returnen in JSX': 'Dit is juist omdat JSX slechts één root-element per component toestaat.',
+    'Attributen kunnen niet worden toegepast in JSX': 'Onjuist, attributen kunnen wel degelijk worden toegepast in JSX.',
+    'Comments worden niet ondersteund in JSX': 'Onjuist, comments in JSX worden ondersteund door gebruik te maken van de juiste syntaxis.',
+    'JSX staat geen zelfsluitende tags toe': 'Onjuist, JSX staat zelfsluitende tags toe, vergelijkbaar met HTML.'
   };
 
   const handleOptionChange = (event) => {
@@ -26,7 +26,7 @@ const NextPage2 = () => {
   };
 
   const handleConfirm = () => {
-    setAttempted(true);
+    setAttempted(true); 
     if (selectedOption === correctAnswer) {
       setResult('correct');
       setCanProceed(true);
@@ -34,82 +34,92 @@ const NextPage2 = () => {
       setResult('verkeerd antwoord');
       setCanProceed(false);
     }
-    setExplanation(descriptions[selectedOption] || '');
+    setExplanation(descriptions[selectedOption] || ''); 
   };
 
   const handleRetry = () => {
+
     setSelectedOption(null);
     setResult('');
     setExplanation('');
     setCanProceed(false);
-    setAttempted(false);
+    setAttempted(false); 
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-      <main className="App-body">
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <h2>Vraag: "Welke hiervan is een voorbeeld van Lorem Ipsum?"</h2>
-          <div className="quiz-options" style={{ marginBottom: '20px' }}>
-            <label>
-              <input
-                type="radio"
-                name="quiz"
-                value="Lorem ipsum dolor sit amet"
-                onChange={handleOptionChange}
-              />
-              <span>Lorem ipsum dolor sit amet</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="quiz"
-                value="Consectetur adipiscing elit"
-                onChange={handleOptionChange}
-              />
-              <span>Consectetur adipiscing elit</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="quiz"
-                value="Sed do eiusmod tempor incididunt"
-                onChange={handleOptionChange}
-              />
-              <span>Sed do eiusmod tempor incididunt</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="quiz"
-                value="Ut enim ad minim veniam"
-                onChange={handleOptionChange}
-              />
-              <span>Ut enim ad minim veniam</span>
-            </label>
-          </div>
-          {result && <h3>{result}</h3>}
-          {explanation && <p>{explanation}</p>}
-          <div style={{ textAlign: 'center', marginTop: '20px' }}>
-            {canProceed ? (
-              <Link to="/third-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
-                Volgende Pagina <FaArrowRight />
-              </Link>
-            ) : (
-              attempted && !canProceed && (
-                <button onClick={handleRetry} style={{ fontSize: '24px', marginTop: '10px' }}>
-                  Probeer Opnieuw
-                </button>
-              )
-            )}
-          </div>
-        </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1>React Quiz</h1>
+        </header>
+        <main className="App-body"> 
+          <Routes>
+            <Route path="/" element={
+              <div>
+                <h2>succes!</h2>
+                <i>Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"</i>
+                <div className="quiz-options">
+                  <label>
+                    <input 
+                      type="radio" 
+                      name="quiz" 
+                      value="Components kunnen geen meerdere tags returnen in JSX" 
+                      onChange={handleOptionChange} 
+                    />
+                    <span>Components kunnen geen meerdere tags returnen in JSX</span>
+                  </label>
+                  <label>
+                    <input 
+                      type="radio" 
+                      name="quiz" 
+                      value="Attributen kunnen niet worden toegepast in JSX" 
+                      onChange={handleOptionChange} 
+                    />
+                    <span>Attributen kunnen niet worden toegepast in JSX</span>
+                  </label>
+                  <label>
+                    <input 
+                      type="radio" 
+                      name="quiz" 
+                      value="Comments worden niet ondersteund in JSX" 
+                      onChange={handleOptionChange} 
+                    />
+                    <span>Comments worden niet ondersteund in JSX</span>
+                  </label>
+                  <label>
+                    <input 
+                      type="radio" 
+                      name="quiz" 
+                      value="JSX staat geen zelfsluitende tags toe" 
+                      onChange={handleOptionChange} 
+                    />
+                    <span>JSX staat geen zelfsluitende tags toe</span>
+                  </label>
+                </div>
+                {result && <h3>{result}</h3>}
+                {explanation && <p>{explanation}</p>}
+                <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                  {canProceed ? (
+                    <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
+                      Volgende Pagina <FaArrowRight />
+                    </Link>
+                  ) : (
+                    attempted && !canProceed && ( 
+                      <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '10px' }}>
+                        Probeer Opnieuw
+                      </button>
+                    )
+                  )}
+                </div>
+              </div>
+            } />
+            <Route path="/third-page" element={<NextPage3 />} />
+          </Routes>
+        </main>
         <ConfirmButton onConfirm={handleConfirm} />
-      </main>
-    </div>
+      </div>
+    </Router>
   );
-};
+}
 
-export default NextPage2;
+export default App;

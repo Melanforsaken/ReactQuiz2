@@ -3,8 +3,8 @@ import ConfirmButton from './ConfirmButton';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import NextPage from './Page2';
-import ThirdPage from './Page3';
+import NextPage2 from './Page2';
+import NextPage3 from './Page3';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -114,8 +114,8 @@ function App() {
                 </div>
               </div>
             } />
-            <Route path="/next-page" element={<NextPage />} />
-            <Route path="/third-page" element={<ThirdPage />} />
+            <Route path="/next-page" element={<NextPage2 />} />
+            <Route path="/third-page" element={<NextPage3 />} />
           </Routes>
         </main>
         <ConfirmButton onConfirm={handleConfirm} />
