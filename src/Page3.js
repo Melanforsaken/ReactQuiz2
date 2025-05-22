@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import ConfirmButton from './ConfirmButton'; 
 
-const NextPage = () => {
+const ThirdPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
@@ -111,4 +111,4 @@ const NextPage = () => {
   );
 };
 
-export default NextPage;
+export default ThirdPage;

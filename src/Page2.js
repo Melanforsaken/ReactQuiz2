@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import ConfirmButton from './ConfirmButton'; 
+import ThirdPage from './Page3';
 
 const NextPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
