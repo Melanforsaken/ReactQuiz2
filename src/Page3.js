@@ -1,5 +1,9 @@
-import React from 'react';
 import './App.css';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
+import ConfirmButton from './ConfirmButton'; 
+
 
 
 const ThirdPage = () => {
