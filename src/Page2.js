@@ -1,16 +1,13 @@
-import './App.css';
-import ConfirmButton from './ConfirmButton'; 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import NextPage3 from './Page3';
 
-function App() {
+const Page2 = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
   const [canProceed, setCanProceed] = useState(false);
-  const [attempted, setAttempted] = useState(false); 
+  const [attempted, setAttempted] = useState(false);
 
   const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
 
@@ -38,7 +35,6 @@ function App() {
   };
 
   const handleRetry = () => {
-
     setSelectedOption(null);
     setResult('');
     setExplanation('');
@@ -47,79 +43,72 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>React Quiz</h1>
-        </header>
-        <main className="App-body"> 
-          <Routes>
-            <Route path="/" element={
-              <div>
-                <h2>succes!</h2>
-                <i>Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"</i>
-                <div className="quiz-options">
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="quiz" 
-                      value="Components kunnen geen meerdere tags returnen in JSX" 
-                      onChange={handleOptionChange} 
-                    />
-                    <span>Components kunnen geen meerdere tags returnen in JSX</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="quiz" 
-                      value="Attributen kunnen niet worden toegepast in JSX" 
-                      onChange={handleOptionChange} 
-                    />
-                    <span>Attributen kunnen niet worden toegepast in JSX</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="quiz" 
-                      value="Comments worden niet ondersteund in JSX" 
-                      onChange={handleOptionChange} 
-                    />
-                    <span>Comments worden niet ondersteund in JSX</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="quiz" 
-                      value="JSX staat geen zelfsluitende tags toe" 
-                      onChange={handleOptionChange} 
-                    />
-                    <span>JSX staat geen zelfsluitende tags toe</span>
-                  </label>
-                </div>
-                {result && <h3>{result}</h3>}
-                {explanation && <p>{explanation}</p>}
-                <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                  {canProceed ? (
-                    <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
-                      Volgende Pagina <FaArrowRight />
-                    </Link>
-                  ) : (
-                    attempted && !canProceed && ( 
-                      <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '10px' }}>
-                        Probeer Opnieuw
-                      </button>
-                    )
-                  )}
-                </div>
-              </div>
-            } />
-            <Route path="/third-page" element={<NextPage3 />} />
-          </Routes>
-        </main>
-        <ConfirmButton onConfirm={handleConfirm} />
-      </div>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <h1>React Quiz - Page 2</h1>
+      </header>
+      <main className="App-body"> 
+        <div>
+          <h2>succes!</h2>
+          <i>Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"</i>
+          <div className="quiz-options">
+            <label>
+              <input 
+                type="radio" 
+                name="quiz" 
+                value="Components kunnen geen meerdere tags returnen in JSX" 
+                onChange={handleOptionChange} 
+              />
+              <span>Components kunnen geen meerdere tags returnen in JSX</span>
+            </label>
+            <label>
+              <input 
+                type="radio" 
+                name="quiz" 
+                value="Attributen kunnen niet worden toegepast in JSX" 
+                onChange={handleOptionChange} 
+              />
+              <span>Attributen kunnen niet worden toegepast in JSX</span>
+            </label>
+            <label>
+              <input 
+                type="radio" 
+                name="quiz" 
+                value="Comments worden niet ondersteund in JSX" 
+                onChange={handleOptionChange} 
+              />
+              <span>Comments worden niet ondersteund in JSX</span>
+            </label>
+            <label>
+              <input 
+                type="radio" 
+                name="quiz" 
+                value="JSX staat geen zelfsluitende tags toe" 
+                onChange={handleOptionChange} 
+              />
+              <span>JSX staat geen zelfsluitende tags toe</span>
+            </label>
+          </div>
+          {result && <h3>{result}</h3>}
+          {explanation && <p>{explanation}</p>}
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            {canProceed ? (
+              <Link to="/third-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
+                Volgende Pagina <FaArrowRight />
+              </Link>
+            ) : (
+              attempted && !canProceed && ( 
+                <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '10px' }}>
+                  Probeer Opnieuw
+                </button>
+              )
+            )}
+          </div>
+        </div>
+      </main>
+      <button onClick={handleConfirm}>Bevestigen</button>
+    </div>
   );
-}
+};
 
-export default App;
+export default Page2;
