@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import ConfirmButton from './ConfirmButton'; 
-import ThirdPage from './Page3';
+import NextPage3 from './Page3';
 
-const NextPage = () => {
+const NextPage2 = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
@@ -112,4 +112,4 @@ const NextPage = () => {
   );
 };
 
-export default NextPage;
+export default NextPage2;
