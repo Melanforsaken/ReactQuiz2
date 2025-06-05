@@ -29,7 +29,7 @@ function App() {
     setSelectedOption(event.target.value);
   };
 
-  const handleConfirm = () => {
+  const   handleConfirm = () => {
     setAttempted(true); 
     if (selectedOption === correctAnswer) {
       setResult('correct');
