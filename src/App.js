@@ -1,5 +1,4 @@
 import './App.css';
-import ConfirmButton from './ConfirmButton'; 
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
@@ -29,7 +28,8 @@ function App() {
     setSelectedOption(event.target.value);
   };
 
-  const   handleConfirm = () => {
+  const handleConfirmPage1 = () => {
+
     setAttempted(true); 
     if (selectedOption === correctAnswer) {
       setResult('correct');
@@ -124,7 +124,9 @@ function App() {
             <Route path="/sixth-page" element={<NextPage6 />} />
           </Routes>
         </main>
-        <ConfirmButton onConfirm={handleConfirm} />
+           <button onClick={handleConfirmPage1} style={{ marginTop: '20px' }}>
+        Bevestigen
+      </button>
       </div>
     </Router>
   );
