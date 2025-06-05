@@ -22,7 +22,8 @@ const Page6 = () => {
     setSelectedOption(event.target.value);
   };
 
-  const handleConfirm = () => {
+  const handleConfirmPage6 = () => {
+
     setAttempted(true); 
     if (selectedOption === correctAnswer) {
       setResult('correct');
@@ -106,7 +107,9 @@ const Page6 = () => {
           </div>
         </div>
       </main>
-      <button onClick={handleConfirm}>Bevestigen</button>
+       <button onClick={handleConfirmPage6} style={{ marginTop: '20px' }}>
+        Bevestigen
+      </button>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ConfirmButton from './ConfirmButton'; 
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 
@@ -22,7 +23,8 @@ const Page3 = () => {
     setSelectedOption(event.target.value);
   };
 
-  const handleConfirm = () => {
+  const handleConfirmPage3 = () => {
+    
     setAttempted(true); 
     if (selectedOption === correctAnswer) {
       setResult('correct');
@@ -106,7 +108,9 @@ const Page3 = () => {
           </div>
         </div>
       </main>
-      <button onClick={handleConfirm}>Bevestigen</button>
+        <button onClick={handleConfirmPage3} style={{ marginTop: '20px' }}>
+        Bevestigen
+      </button>
     </div>
   );
 };
