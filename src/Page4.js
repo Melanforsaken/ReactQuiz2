@@ -105,7 +105,7 @@ const Page4 = () => {
             )}
           </div>
           <div style={{ textAlign: 'center', marginTop: '20px' }}>
-            <button onClick={handleConfirmPage4} style={{ fontSize: '16px' }}>
+            <button className="confirm-button" onClick={handleConfirmPage4}>
               Bevestigen
             </button>
           </div>

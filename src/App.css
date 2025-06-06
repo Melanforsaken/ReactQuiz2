@@ -64,3 +64,19 @@
 .start-button:hover {
     background-color: #3693df; 
 }
+
+.confirm-button {
+    position: sticky;
+    padding: 10px 20px;
+    background-color: #0f6789; 
+    color: rgb(12, 11, 11);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.confirm-button:hover {
+    background-color: #458bc5; 
+}
