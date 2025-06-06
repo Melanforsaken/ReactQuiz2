@@ -29,7 +29,7 @@ function App() {
     setSelectedOption(event.target.value);
   };
 
-  const handleConfirmPage1 = () => {
+  const handleConfirmPage0 = () => {
 
     setAttempted(true); 
     if (selectedOption === correctAnswer) {
@@ -116,6 +116,11 @@ function App() {
                     )
                   )}
                 </div>
+                <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <button onClick={handleConfirmPage0} style={{ fontSize: '16px' }}>
+              Bevestigen
+            </button>
+          </div>
               </div>
             } />
             <Route path="/first-page" element={<NextPage1 />} />
@@ -126,9 +131,6 @@ function App() {
             <Route path="/sixth-page" element={<NextPage6 />} />
           </Routes>
         </main>
-           <button onClick={handleConfirmPage1} style={{ marginTop: '50px' }}>
-        Bevestigen1
-      </button>
       </div>
     </Router>
   );

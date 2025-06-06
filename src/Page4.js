@@ -104,11 +104,13 @@ const Page4 = () => {
               )
             )}
           </div>
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <button onClick={handleConfirmPage4} style={{ fontSize: '16px' }}>
+              Bevestigen
+            </button>
+          </div>
         </div>
       </main>
-       <button onClick={handleConfirmPage4} style={{ marginTop: '20px' }}>
-        Bevestigen
-      </button>
     </div>
   );
 };
