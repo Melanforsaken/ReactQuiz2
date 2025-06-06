@@ -105,7 +105,7 @@ function App() {
                 {explanation && <p>{explanation}</p>}
                 <div style={{ textAlign: 'center', marginTop: '10px' }}>
                   {canProceed ? (
-                    <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
+                    <Link to="/first-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
                       Volgende Pagina <FaArrowRight />
                     </Link>
                   ) : (
