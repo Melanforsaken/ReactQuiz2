@@ -46,7 +46,7 @@ const Results = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Results:</h2>
+        <h2>Results</h2>
       </header>
       <main className="App-body"> 
         <div>

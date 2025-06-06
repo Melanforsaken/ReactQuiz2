@@ -1,7 +1,6 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
 import NextPage1 from './Page1';
 import NextPage2 from './Page2';
 import NextPage3 from './Page3';
@@ -10,47 +9,6 @@ import NextPage5 from './Page5';
 import NextPage6 from './Page6';
 
 function App() {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [result, setResult] = useState('');
-  const [explanation, setExplanation] = useState('');
-  const [canProceed, setCanProceed] = useState(false);
-  const [attempted, setAttempted] = useState(false); 
-
-  const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
-
-  const descriptions = {
-    'Components kunnen geen meerdere tags returnen in JSX': 'Dit is juist omdat JSX slechts één root-element per component toestaat.',
-    'Attributen kunnen niet worden toegepast in JSX': 'Onjuist, attributen kunnen wel degelijk worden toegepast in JSX.',
-    'Comments worden niet ondersteund in JSX': 'Onjuist, comments in JSX worden ondersteund door gebruik te maken van de juiste syntaxis.',
-    'JSX staat geen zelfsluitende tags toe': 'Onjuist, JSX staat zelfsluitende tags toe, vergelijkbaar met HTML.'
-  };
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const handleConfirmPage0 = () => {
-
-    setAttempted(true); 
-    if (selectedOption === correctAnswer) {
-      setResult('correct');
-      setCanProceed(true);
-    } else {
-      setResult('verkeerd antwoord');
-      setCanProceed(false);
-    }
-    setExplanation(descriptions[selectedOption] || ''); 
-  };
-
-  const handleRetry = () => {
-
-    setSelectedOption(null);
-    setResult('');
-    setExplanation('');
-    setCanProceed(false);
-    setAttempted(false); 
-  };
-
   return (
     <Router>
       <div className="App">
@@ -60,67 +18,14 @@ function App() {
         <main className="App-body"> 
           <Routes>
             <Route path="/" element={
-              <div>
-                <h2>succes!</h2>
-                <i>Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"</i>
-                <div className="quiz-options">
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="quiz" 
-                      value="Components kunnen geen meerdere tags returnen in JSX" 
-                      onChange={handleOptionChange} 
-                    />
-                    <span>Components kunnen geen meerdere tags returnen in JSX</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="quiz" 
-                      value="Attributen kunnen niet worden toegepast in JSX" 
-                      onChange={handleOptionChange} 
-                    />
-                    <span>Attributen kunnen niet worden toegepast in JSX</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="quiz" 
-                      value="Comments worden niet ondersteund in JSX" 
-                      onChange={handleOptionChange} 
-                    />
-                    <span>Comments worden niet ondersteund in JSX</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="quiz" 
-                      value="JSX staat geen zelfsluitende tags toe" 
-                      onChange={handleOptionChange} 
-                    />
-                    <span>JSX staat geen zelfsluitende tags toe</span>
-                  </label>
-                </div>
-                {result && <h3>{result}</h3>}
-                {explanation && <p>{explanation}</p>}
-                <div style={{ textAlign: 'center', marginTop: '10px' }}>
-                  {canProceed ? (
-                    <Link to="/first-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
-                      Volgende Pagina <FaArrowRight />
-                    </Link>
-                  ) : (
-                    attempted && !canProceed && ( 
-                      <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '20px' }}>
-                        Probeer Opnieuw
-                      </button>
-                    )
-                  )}
-                </div>
-                <div style={{ textAlign: 'center', marginTop: '20px' }}>
-            <button onClick={handleConfirmPage0} style={{ fontSize: '16px' }}>
-              Bevestigen
-            </button>
-          </div>
+              <div style={{ textAlign: 'center' }}>
+                <h2>Welkom bij de React Quiz!</h2>
+                <p>Deze quiz zal je basiskennis van React op de proef stellen.</p>
+                <Link to="/first-page">
+                  <button style={{ fontSize: '24px', marginTop: '20px' }}>
+                    Start Quiz
+                  </button>
+                </Link>
               </div>
             } />
             <Route path="/first-page" element={<NextPage1 />} />
