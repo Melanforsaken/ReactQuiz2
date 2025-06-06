@@ -50,7 +50,6 @@ const Page6 = () => {
       </header>
       <main className="App-body"> 
         <div>
-          <h2>succes!</h2>
           <i>Vraag: "Welke hiervan is een restrictie die JSX heeft ten opzichte van standaard HTML code?"</i>
           <div className="quiz-options">
             <label>

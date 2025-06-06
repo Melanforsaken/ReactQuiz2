@@ -102,14 +102,14 @@ function App() {
                 </div>
                 {result && <h3>{result}</h3>}
                 {explanation && <p>{explanation}</p>}
-                <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                <div style={{ textAlign: 'center', marginTop: '10px' }}>
                   {canProceed ? (
                     <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
                       Volgende Pagina <FaArrowRight />
                     </Link>
                   ) : (
                     attempted && !canProceed && ( 
-                      <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '10px' }}>
+                      <button onClick={handleRetry} style={{ fontSize: '14px', marginTop: '20px' }}>
                         Probeer Opnieuw
                       </button>
                     )
@@ -124,8 +124,8 @@ function App() {
             <Route path="/sixth-page" element={<NextPage6 />} />
           </Routes>
         </main>
-           <button onClick={handleConfirmPage1} style={{ marginTop: '20px' }}>
-        Bevestigen
+           <button onClick={handleConfirmPage1} style={{ marginTop: '50px' }}>
+        Bevestigen1
       </button>
       </div>
     </Router>
