@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 
-const Page2 = () => {
+const Page1 = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState('');
   const [explanation, setExplanation] = useState('');
@@ -22,7 +22,7 @@ const Page2 = () => {
     setSelectedOption(event.target.value);
   };
 
-  const handleConfirmPage2 = () => {
+  const handleConfirmPage1 = () => {
     console.log("test")
     
     setAttempted(true); 
@@ -47,7 +47,7 @@ const Page2 = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Vraag 2</h2>
+        <h2>Vraag 1!</h2>
       </header>
       <main className="App-body"> 
         <div>
@@ -94,7 +94,7 @@ const Page2 = () => {
           {explanation && <p>{explanation}</p>}
           <div style={{ textAlign: 'center', marginTop: '20px' }}>
             {canProceed ? (
-              <Link to="/third-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
+              <Link to="/next-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
                 Volgende Pagina <FaArrowRight />
               </Link>
             ) : (
@@ -107,11 +107,11 @@ const Page2 = () => {
           </div>
         </div>
       </main>
-          <button onClick={handleConfirmPage2} style={{ marginTop: '20px' }}>
+          <button onClick={handleConfirmPage1} style={{ marginTop: '20px' }}>
         Bevestigen
       </button>
     </div>
   );
 };
 
-export default Page2;
+export default Page1;

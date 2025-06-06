@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import NextPage1 from './Page1';
 import NextPage2 from './Page2';
 import NextPage3 from './Page3';
 import NextPage4 from './Page4';
@@ -117,6 +118,7 @@ function App() {
                 </div>
               </div>
             } />
+            <Route path="/first-page" element={<NextPage1 />} />
             <Route path="/next-page" element={<NextPage2 />} />
             <Route path="/third-page" element={<NextPage3 />} />
             <Route path="/fourth-page" element={<NextPage4 />} />
