@@ -20,9 +20,9 @@ function App() {
             <Route path="/" element={
               <div style={{ textAlign: 'center' }}>
                 <h2>Welkom bij de React Quiz!</h2>
-                <p>Deze quiz zal je basiskennis van React op de proef stellen.</p>
+                <p>Deze quiz zal je basiskennis van React op de proef stellen. Na afloop van alle zes de vragen zal een eindresultaat volgen.</p>
                 <Link to="/first-page">
-                  <button style={{ fontSize: '24px', marginTop: '20px' }}>
+                   <button className="start-button">
                     Start Quiz
                   </button>
                 </Link>

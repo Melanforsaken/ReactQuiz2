@@ -48,3 +48,19 @@
 .quiz-options input[type="radio"]:checked {
   background-color: #496084; 
 }
+
+.start-button {
+    position: sticky;
+    padding: 10px 20px;
+    background-color: #6f165c; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.start-button:hover {
+    background-color: #3693df; 
+}
