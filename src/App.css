@@ -11,10 +11,13 @@
 }
 
 .App-body {
-  background-color: rgb(168, 157, 157);
-  color: #0f0e0e;
-  padding: 40px; 
-  min-height: 100vh; 
+ display: flex;                          
+ flex-direction: column;                  
+ justify-content: space-between;          
+ background-color: rgb(168, 157, 157);    
+ color: #0f0e0e;                         
+ padding: 40px;                          
+ min-height: calc(100vh - 60px);         
 }
 
 .App-link {
