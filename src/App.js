@@ -7,7 +7,7 @@ import NextPage3 from './Page3';
 import NextPage4 from './Page4';
 import NextPage5 from './Page5';
 import NextPage6 from './Page6';
-import Score from './score';
+import Score from './Results';
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
             <Route path="/fourth-page" element={<NextPage4 />} />
             <Route path="/fifth-page" element={<NextPage5 />} />
             <Route path="/sixth-page" element={<NextPage6 />} />
-            <Route path="/score" element={<Score/>} />
+            <Route path="/score" element={<Score />} />
           </Routes>
         </main>
       </div>
