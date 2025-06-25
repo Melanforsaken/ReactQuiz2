@@ -27,6 +27,8 @@ const Page1 = () => {
     
     setAttempted(true); 
     if (selectedOption === correctAnswer) {
+      // Voeg punt toe aan localstorage
+      // Als retry is toegevoegd, check of er een retry is geweest.
       setResult('correct');
       setCanProceed(true);
     } else {
@@ -37,6 +39,7 @@ const Page1 = () => {
   };
 
   const handleRetry = () => {
+    // Voeg retry to aan deze pagina
     setSelectedOption(null);
     setResult('');
     setExplanation('');

@@ -22,6 +22,7 @@ function App() {
               <div style={{ textAlign: 'center' }}>
                 <h2>Welkom bij de React Quiz!</h2>
                 <p>Deze quiz zal je basiskennis van React op de proef stellen. Na afloop van alle zes de vragen zal een eindresultaat volgen.</p>
+                {/* Button veranderen zodat het localstorage leeg gaat halen. */}
                 <Link to="/first-page">
                    <button className="start-button">
                     Start Quiz
