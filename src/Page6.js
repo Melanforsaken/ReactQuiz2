@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 
@@ -10,7 +10,7 @@ const Page6 = () => {
   const [attempted, setAttempted] = useState(false);
 
   const correctAnswer = 'Components kunnen geen meerdere tags returnen in JSX';
-
+  
   const descriptions = {
     'Components kunnen geen meerdere tags returnen in JSX': 'Dit is juist omdat JSX slechts één root-element per component toestaat.',
     'Attributen kunnen niet worden toegepast in JSX': 'Onjuist, attributen kunnen wel degelijk worden toegepast in JSX.',
@@ -18,21 +18,28 @@ const Page6 = () => {
     'JSX staat geen zelfsluitende tags toe': 'Onjuist, JSX staat zelfsluitende tags toe, vergelijkbaar met HTML.'
   };
 
+  useEffect(() => {
+    if (!localStorage.getItem('quizScore')) {
+      localStorage.setItem('quizScore', 0);
+    }
+  }, []);
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   const handleConfirmPage6 = () => {
-
-    setAttempted(true); 
+    setAttempted(true);
     if (selectedOption === correctAnswer) {
+      const newScore = parseInt(localStorage.getItem('quizScore'), 10) + 1;
+      localStorage.setItem('quizScore', newScore);
       setResult('correct');
       setCanProceed(true);
     } else {
       setResult('verkeerd antwoord');
       setCanProceed(false);
     }
-    setExplanation(descriptions[selectedOption] || ''); 
+    setExplanation(descriptions[selectedOption] || '');
   };
 
   const handleRetry = () => {
@@ -93,7 +100,7 @@ const Page6 = () => {
           {explanation && <p>{explanation}</p>}
           <div style={{ textAlign: 'center', marginTop: '20px' }}>
             {canProceed ? (
-              <Link to="/third-page" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
+              <Link to="/score" style={{ fontSize: '24px', textDecoration: 'none', color: 'black' }}>
                 Volgende Pagina <FaArrowRight />
               </Link>
             ) : (
@@ -115,4 +122,4 @@ const Page6 = () => {
   );
 };
 
-export default Page6;
+export default Page6
