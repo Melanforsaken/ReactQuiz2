@@ -4,7 +4,7 @@ function QuizItem({title, answers, selectionIndex, setSelectionIndex, onSubmit})
         <>
             <h2> {title} </h2>
             <div>
-                { answers.map((answer, index) => (
+                {answers.map((answer, index) => (
                     <>
                         <div className="list-group">
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -12,9 +12,9 @@ function QuizItem({title, answers, selectionIndex, setSelectionIndex, onSubmit})
                                className={selectionIndex === index ? "list-group-item active" : "list-group-item"}>{answer.text}</a>
                             <br/>
                         </div>
-                        <button>volgende</button>
                     </>
                 ))}
+                <button onClick={() => onSubmit()}>volgende</button>
             </div>
         </>
     )

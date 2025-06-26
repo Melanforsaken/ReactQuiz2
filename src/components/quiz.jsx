@@ -8,6 +8,7 @@ function Quiz() {
     const [score, setScore] = useState(0);
 
     function handleSubmit() {
+        console.log(questionIndex);
         if (questions[questionIndex].options[selectionIndex].correct) {
             setScore(s => s + 1);
         }
@@ -28,8 +29,16 @@ function Quiz() {
                     </div>
                 )
             }
-            {questionIndex >= 0 && <QuizItem title={questions[questionIndex].text} answers={questions[questionIndex].options} selectionIndex={selectionIndex} setSelectionIndex={setSelectionIndex} onSubmit={handleSubmit()}/> }
-            {/*<button onClick={() => setQuestionIndex(q => q + 1)} className="start-button">Starten.</button>*/}
+            {questionIndex >= 0 && questionIndex < questions.length && (
+                <QuizItem
+                    title={questions[questionIndex].text}
+                    answers={questions[questionIndex].options}
+                    selectionIndex={selectionIndex}
+                    setSelectionIndex={setSelectionIndex}
+                    onSubmit={handleSubmit}
+                />
+            )}
+            {questionIndex >= questions.length && <h1>je score is: {score}</h1>}
         </>
     )
 }
