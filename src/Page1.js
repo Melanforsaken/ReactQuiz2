@@ -18,28 +18,31 @@ const Page1 = () => {
     'JSX staat geen zelfsluitende tags toe': 'Onjuist, JSX staat zelfsluitende tags toe, vergelijkbaar met HTML.'
   };
 
+ if (!localStorage.getItem('quizScore')) {
+    localStorage.setItem('quizScore', 0);
+  }
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   const handleConfirmPage1 = () => {
-    console.log("test")
-    
-    setAttempted(true); 
+    console.log(selectedOption === correctAnswer);
+    setAttempted(true);
     if (selectedOption === correctAnswer) {
-      // Voeg punt toe aan localstorage
-      // Als retry is toegevoegd, check of er een retry is geweest.
+      const oldScore = parseInt(localStorage.getItem('quizScore'));
+      localStorage.setItem('quizScore', (oldScore++ ?? 1));
+      console.log('jo');
       setResult('correct');
       setCanProceed(true);
     } else {
       setResult('verkeerd antwoord');
       setCanProceed(false);
     }
-    setExplanation(descriptions[selectedOption] || ''); 
+    setExplanation(descriptions[selectedOption] || '');
   };
 
   const handleRetry = () => {
-    // Voeg retry to aan deze pagina
     setSelectedOption(null);
     setResult('');
     setExplanation('');
@@ -109,7 +112,7 @@ const Page1 = () => {
             )}
           </div>
            <div style={{ textAlign: 'center', marginTop: '20px' }}>
-            <button className="confirm-button" onClick={handleConfirmPage1}>
+            <button className="confirm-button" onClick={handleConfirmPage1()}>
               Bevestigen
             </button>
           </div>

@@ -18,11 +18,10 @@ const Page6 = () => {
     'JSX staat geen zelfsluitende tags toe': 'Onjuist, JSX staat zelfsluitende tags toe, vergelijkbaar met HTML.'
   };
 
-  useEffect(() => {
-    if (!localStorage.getItem('quizScore')) {
-      localStorage.setItem('quizScore', 0);
-    }
-  }, []);
+
+  if (!localStorage.getItem('quizScore')) {
+    localStorage.setItem('quizScore', 0);
+  }
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -31,8 +30,8 @@ const Page6 = () => {
   const handleConfirmPage6 = () => {
     setAttempted(true);
     if (selectedOption === correctAnswer) {
-      const newScore = parseInt(localStorage.getItem('quizScore'), 10) + 1;
-      localStorage.setItem('quizScore', newScore);
+      const oldScore = parseInt(localStorage.getItem('quizScore'));
+      localStorage.setItem('quizScore', oldScore++);
       setResult('correct');
       setCanProceed(true);
     } else {

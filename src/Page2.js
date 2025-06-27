@@ -18,22 +18,26 @@ const Page2 = () => {
     'JSX staat geen zelfsluitende tags toe': 'Onjuist, JSX staat zelfsluitende tags toe, vergelijkbaar met HTML.'
   };
 
+    if (!localStorage.getItem('quizScore')) {
+    localStorage.setItem('quizScore', 0);
+  }
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   const handleConfirmPage2 = () => {
-    console.log("test")
-    
-    setAttempted(true); 
+    setAttempted(true);
     if (selectedOption === correctAnswer) {
+      const oldScore = parseInt(localStorage.getItem('quizScore'));
+      localStorage.setItem('quizScore', oldScore++ ?? 1);
       setResult('correct');
       setCanProceed(true);
     } else {
       setResult('verkeerd antwoord');
       setCanProceed(false);
     }
-    setExplanation(descriptions[selectedOption] || ''); 
+    setExplanation(descriptions[selectedOption] || '');
   };
 
   const handleRetry = () => {

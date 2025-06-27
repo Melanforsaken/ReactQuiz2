@@ -8,7 +8,7 @@ const Results = () => {
 
   useEffect(() => {
     const storedScore = localStorage.getItem('quizScore');
-    const total = localStorage.getItem('totalQuestions') ? parseInt(localStorage.getItem('totalQuestions'), 10) : 0;
+    const total = localStorage.getItem('totalQuestions') ? parseInt(localStorage.getItem('totalQuestions'), 6 ) : 0;
 
     if (storedScore) {
       setScore(parseInt(storedScore, 10));
